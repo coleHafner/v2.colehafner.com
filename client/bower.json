@@ -1,0 +1,30 @@
+{
+  "name": "colehafner.dev",
+  "homepage": "colehafner.com",
+  "description": "New portfolio site",
+  "main": "index.html",
+  "moduleType": [
+    "es6",
+    "node"
+  ],
+  "keywords": [
+    "portfolio",
+    "html",
+    "js",
+    "angular",
+    "css3",
+    "html5"
+  ],
+  "authors": [
+    "Cole Hafner"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
