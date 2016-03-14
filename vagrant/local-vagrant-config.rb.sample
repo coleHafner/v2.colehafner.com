@@ -2,18 +2,22 @@
 # vi: set ft=ruby :
 
 #BASIC LOCAL GUEST CONFIGURATION
-LOCAL_ARGS = {
-	"guest_ip" => '192.168.1.240',
-	"guest_hostname" => 'ecos.dev',
-	"app_root" => 'public',
-	"client_root" => 'client'
-}
+#LOCAL_ARGS = {
+#        "guest_ip" => '192.168.11.131',
+#        "guest_hostname" => 'v2.colehafner.dev',
+#        "app_root" => 'server',
+#        "client_root" => 'client'
+#}
 
 #ADDITIONAL FANCYPANTS VAGRANT CONFIG
-# Vagrant.configure(2) do |config|
-# 	config.ssh.forward_agent = true
-# 	config.vm.provider "virtualbox" do |v|
-# 	  v.memory = 2048
-# 	  v.cpus = 2
-# 	end
-# end
+#Vagrant.configure(2) do |config|
+
+#        config.vm.network "forwarded_port", guest: 9000, host: 9000
+#        config.vm.network "forwarded_port", guest: 35729, host: 35729
+
+#        config.vm.provider "virtualbox" do |v|
+#                v.name = LOCAL_ARGS["guest_hostname"]
+#                v.memory = 2048
+#                v.cpus = 2
+#        end
+#end	
