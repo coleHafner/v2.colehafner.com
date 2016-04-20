@@ -1,4 +1,1 @@
-/vagrant/local-vagrant-bootstrap.sh
-/vagrant/local-vagrant-config.rb
-/vagrant/.vagrant
-/yo-client/nbproject/private/
+/nbproject
