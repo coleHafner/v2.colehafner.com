@@ -6,189 +6,81 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.js"></script>
 		
 		<link href='https://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
+		<link href='css/style.css' rel='stylesheet' type='text/css'>
 		
 		<script type="text/javascript">
-			angular.module('cjh', ['ui.router'])
-			
-			.directive('appNav', [function() {
-				return {
-					restrict: 'E',
-					replace: true,
-					templateUrl: 'app-nav.html',
-					controller: ['$scope', '$window', function($scope, $window) {
-							
-						$scope.selected = 'home';
-							
-						$scope.$root.$on('$stateChangeSuccess', function($event, toState, toParams, fromState, fromParams) {
-							var newTitle = 'colehafner.com - ' + toState.name;
-							//console.log('oldTitle', $window.document.title, 'newTitle', newTitle);
-							$window.document.title = newTitle;
-							$scope.selected = toState.name;
-						});
-					}]
-				};
-			}])
-			
-			.config([
-				'$stateProvider',
-				'$urlRouterProvider',
-			function (
-				$stateProvider,
-				$urlRouterProvider
-			) {
-				$stateProvider
-					.state('home', {
-						url: '/',
-						controller: 'HomeCtrl as ctrl',
-						templateUrl: 'home.html'
-					})
-					
-					.state('projects', {
-						url: '/projects',
-						controller: 'ProjectsCtrl as ctrl',
-						templateUrl: 'projects.html'
-					})
-					
-					.state('blog', {
-						url: '/blog',
-						controller: 'BlogCtrl as ctrl',
-						templateUrl: 'blog.html'
-					});
-
-				$urlRouterProvider.otherwise('/');
-			}])
-
-			.controller('HomeCtrl', [
-				'$scope', 
-			function(
-				$scope
-			) {
-				
-			}])
-		
-			.controller('ProjectsCtrl', [
-				'$scope', 
-			function(
-				$scope
-			) {
-				
-			}])
-		
-			.controller('BlogCtrl', [
-				'$scope', 
-			function(
-				$scope
-			) {
-
-			}]);
+			angular.module('cjh', ['ui.router']);
 		</script>
 		
-		<style type="text/css">
-			body {
-				margin-top: 100px;
-				padding: 10px;
-				font-family: 'Oswald', sans-serif;
-				font-weight: 300;
-			}
-			
-			.app-nav {
-				position: fixed;
-				height: 100px;
-				left: 0;
-				right: 0;
-				top: 0;
-				background-color: #fff;
-				box-shadow: 0 1px 15px rgba(0,0,0, .22);
-				font-weight: 400;
-			}
-			
-			.app-nav .logo {
-				background: url(http://v1.colehafner.com/images/logo.png) center center no-repeat;
-				background-color: #ff0000;
-				width: 180px;
-				height: 90px;
-				margin-top: 5px;
-				margin-left: 5px;
-				
-				float: left;
-			}
-			
-			.app-nav ul {
-				float: right;
-			}
-			
-			.app-nav ul li {
-				display: inline-block;
-			}
-			
-			.app-nav ul li a {
-				padding: 20px;
-				display: block;
-				text-decoration: none;
-				padding-left: 25px;
-				padding-right: 25px;
-				min-width: 80px;
-				text-align: center;
-				margin-right: 10px;
-			}
-			
-			.app-nav ul li a:hover, .app-nav ul li a.active {
-				background-color: #999;
-				color: #fff;
-			}
-			
-			.clearfix:after {
-				visibility: hidden;
-				display: block;
-				font-size: 0;
-				content: " ";
-				clear: both;
-				height: 0;
-			}
-			
-		   .clearfix { 
-			   display: inline-block; 
-		   }
-
-		   * html .clearfix { 
-			   height: 1%; 
-		   }
-
-		   .clearfix { 
-			   display: block; 
-		   }
-		</style>
+		<script src="js/routes.js"></script>
+		<script src="js/controllers.js"></script>
+		<script src="js/directives.js"></script>
 
 	</head>
 	<body ng-app="cjh">
 		<app-nav></app-nav>
-		
 		<div ui-view></div>
 		
 		<script type="text/ng-template" id="home.html">
-			<p>This is the content of the template</p>
-			{{ farts }}
+			home...
 		</script>
 		
 		<script type="text/ng-template" id="projects.html">
-			These are some projects...
+			<div class="projects">
+			
+				<div class="filters">
+					<div class="inner">
+						<input type="text" ng-model="search.text" />
+					</div>
+				</div>
+		
+				<ul>
+					<li ng-repeat="p in ctrl.projects" ng-class="{odd: $odd, even: $even}">
+						<div class="panel">
+							<h4>{{ p.name }}</h4>
+							<a class="inner" 
+								href="{{ p.url }}" 
+								target="_blank"
+								style="background-image: url({{p.img}}); background-size: cover;">
+								<div class="desc">{{ p.desc }}</div>
+							</a>
+						</div>
+					</li>
+				</ul>
+			</div>
 		</script>
 		
 		<script type="text/ng-template" id="blog.html">
-			BLOGGGGGG...
+			blog...
 		</script>
 		
-		<script type="text/ng-template" id="app-nav.html">
+		<script type="text/ng-template" id="nav.html">
 			<div class="app-nav clearfix">
 				<div class="logo"></div>
 				<ul>
-					<li><a ui-sref="home" ng-class="{active: selected === 'home'}">HOME</a></li>
-					<li><a ui-sref="projects" ng-class="{active: selected === 'projects'}">PROJECTS</a></li>
-					<li><a ui-sref="blog" ng-class="{active: selected === 'blog'}">BLOG</a></li>
+					<li>
+						<a ng-class="{active: selected === 'home'}" 
+							ng-click="activate($event, 'home')">
+							HOME
+						</a>
+					</li>
+					<li>
+						<a ng-class="{active: selected === 'projects'}"
+							ng-click="activate($event, 'projects')">
+							PROJECTS
+						</a>
+					</li>
+					<li>
+						<a ng-class="{active: selected === 'blog'}"
+							ng-click="activate($event, 'blog')">
+							BLOG
+						</a>
+					</li>
 				</ul>
 			</div>
 		</script>

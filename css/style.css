@@ -1,0 +1,175 @@
+body {
+	margin-top: 100px;
+	padding: 10px;
+	font-family: arial;
+}
+
+.app-nav {
+	position: fixed;
+	height: 100px;
+	left: 0;
+	right: 0;
+	top: 0;
+	background-color: #fff;
+	box-shadow: 0 1px 15px rgba(0,0,0, .22);
+	font-family: 'Oswald', sans-serif;
+	font-weight: 400;
+	z-index: 1000;
+}
+
+h4 {
+	font-family: 'Oswald', sans-serif;
+	font-weight: 300;
+}
+
+.app-nav .logo {
+	background: url(http://v1.colehafner.com/images/logo.png) center center no-repeat;
+	background-color: #ff0000;
+	width: 180px;
+	height: 90px;
+	margin-top: 5px;
+	margin-left: 5px;
+
+	float: left;
+}
+
+.app-nav ul {
+	float: right;
+}
+
+.app-nav ul li {
+	display: inline-block;
+}
+
+.app-nav ul li a {
+	padding: 20px;
+	display: block;
+	text-decoration: none;
+	padding-left: 25px;
+	padding-right: 25px;
+	min-width: 80px;
+	text-align: center;
+	margin-right: 10px;
+}
+
+.app-nav ul li a:hover, .app-nav ul li a.active {
+	background-color: #999;
+	color: #fff;
+	transition-property: 'background-color';
+	transition-duration: 1s;
+	cursor: pointer;
+}
+
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+}
+
+.clearfix { 
+   display: inline-block; 
+}
+
+* html .clearfix { 
+   height: 1%; 
+}
+
+.clearfix { 
+   display: block; 
+}
+
+.projects .filters {
+	margin-bottom: 20px;
+	margin-right: 20px;
+	margin-top: 12px;
+	font-size: 15px;
+	background-color: #efefef;
+}
+
+.projects .filters .inner {
+	padding: 20px;
+}
+
+.projects .filters .inner input[type=text] {
+	padding: 20px;
+	border-radius: 4px;
+	width: 200px;
+	border: 1px solid #ccc;
+	font-size: 22px;
+}
+
+.projects ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.projects ul li {
+	display: block;
+	width: 50%;
+	margin-bottom: 10px;
+	float: left;
+	height: 400px;
+}
+
+.projects ul li h4 {
+	padding: 0;
+	margin: 0;
+	margin-bottom: 10px;
+}
+
+/*.projects ul li.odd {
+	float: right;
+}
+
+.projects ul li.even {
+	float: left;
+}*/
+
+.projects ul li .panel {
+	position: relative;
+	padding: 20px;
+	padding-top: 12px;
+	background-color: #eee;
+	height: 90%;
+	margin-right: 18px;
+}
+
+.projects ul li .inner {
+	position: absolute;
+	top: 45px;
+	right: 15px;
+	bottom: 15px;
+	left: 15px;
+	background-color: #fff;
+	padding: 10px;
+	display: block;
+}
+
+.projects ul li .inner .desc {
+    background-color: rgba(255, 255, 255, .75);
+    padding: 15px;
+    border-radius: 3px;
+    color: #000;
+	position: absolute;
+	bottom: 10px;
+	left: 10px;
+	right: 10px;
+	min-height: 40px;
+	text-align: center;
+	border: 1px solid #ccc;
+}
+
+.projects ul li a img {
+	width: 80%;
+}
+
+@media (max-width: 1100px) {
+	.projects ul li {
+		display: block;
+		width: 100%;
+	}
+}
