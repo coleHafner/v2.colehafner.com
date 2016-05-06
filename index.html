@@ -9,14 +9,16 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.js"></script>
+		<script src="http://mbenford.github.io/ngTagsInput/js/ng-tags-input.min.js"></script>
+		
 		
 		<link href='https://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
-		<link href='css/style.css' rel='stylesheet' type='text/css'>
+		<link href='css/foundation-icons.css' rel='stylesheet' type='text/css' />
+		<link href='css/style.css' rel='stylesheet' type='text/css' />
+		<link rel="stylesheet" href="http://mbenford.github.io/ngTagsInput/css/ng-tags-input.min.css" />
 		
-		<script type="text/javascript">
-			angular.module('cjh', ['ui.router']);
-		</script>
 		
+		<script src="js/app.js"></script>
 		<script src="js/routes.js"></script>
 		<script src="js/controllers.js"></script>
 		<script src="js/directives.js"></script>
@@ -35,13 +37,27 @@
 			
 				<div class="filters">
 					<div class="inner">
-						<input type="text" ng-model="search.text" />
+						<i class="fi-magnifying-glass search-icon"></i>
+						
+						<tags-input 
+							on-tag-added="ctrl.filterProjects($tag)"
+							on-tag-removed="ctrl.filterProjects($tag)"
+							ng-model="ctrl.selectedTags" 
+							placeholder="Search">
+									
+							<auto-complete 
+								min-length="0" 
+								source="ctrl.loadTags($query)">
+							</auto-complete>
+					
+						</tags-input>
+						
 					</div>
 				</div>
 		
-				<ul>
-					<li ng-repeat="p in ctrl.projects" ng-class="{odd: $odd, even: $even}">
-						<div class="panel">
+				<ul class="plist">
+					<li ng-repeat="p in ctrl.projects" ng-class="{odd: $odd, even: $even}" ng-show="p.visible === true">
+						<div class="panel"  >
 							<h4>{{ p.name }}</h4>
 							<a class="inner" 
 								href="{{ p.url }}" 

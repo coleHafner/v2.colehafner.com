@@ -91,23 +91,38 @@ h4 {
 
 .projects .filters .inner {
 	padding: 20px;
+	position: relative;
+}
+
+.projects .filters .inner .tags {
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	font-size: 22px;
+}
+
+.projects .filters .inner .tags ul.tag-list li.tag-item {
+	margin-top: 9px;
+	margin-left: 4px;
+}
+
+.projects .filters .inner tags-input .host {
+	margin-left: 58px
 }
 
 .projects .filters .inner input[type=text] {
 	padding: 20px;
-	border-radius: 4px;
-	width: 200px;
-	border: 1px solid #ccc;
+	width: 200px !important;
+	border: 0;
 	font-size: 22px;
 }
 
-.projects ul {
+.projects ul.plist {
 	margin: 0;
 	padding: 0;
 	list-style: none;
 }
 
-.projects ul li {
+.projects ul.plist li {
 	display: block;
 	width: 50%;
 	margin-bottom: 10px;
@@ -115,7 +130,7 @@ h4 {
 	height: 400px;
 }
 
-.projects ul li h4 {
+.projects ul.plist li h4 {
 	padding: 0;
 	margin: 0;
 	margin-bottom: 10px;
@@ -129,7 +144,7 @@ h4 {
 	float: left;
 }*/
 
-.projects ul li .panel {
+.projects ul.plist li .panel {
 	position: relative;
 	padding: 20px;
 	padding-top: 12px;
@@ -138,7 +153,7 @@ h4 {
 	margin-right: 18px;
 }
 
-.projects ul li .inner {
+.projects ul.plist li .inner {
 	position: absolute;
 	top: 45px;
 	right: 15px;
@@ -149,7 +164,7 @@ h4 {
 	display: block;
 }
 
-.projects ul li .inner .desc {
+.projects ul.plist li .inner .desc {
     background-color: rgba(255, 255, 255, .75);
     padding: 15px;
     border-radius: 3px;
@@ -163,8 +178,17 @@ h4 {
 	border: 1px solid #ccc;
 }
 
-.projects ul li a img {
+.projects ul.plist li a img {
 	width: 80%;
+}
+
+.projects .search-icon {
+	font-size: 40px;
+    color: #ccc;
+    position: absolute;
+    top: 29px;
+    z-index: 100;
+    left: 24px;
 }
 
 @media (max-width: 1100px) {
