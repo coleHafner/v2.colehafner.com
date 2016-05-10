@@ -87,15 +87,36 @@ angular.module('cjh')
 	];
    
 	ctrl.loadTags = function(query) {
-		var deferred = $q.defer();
+		var deferred = $q.defer(),
+			availTags = ctrl.tags.filter(function(tag) {
+				return (tag.text.indexOf(query) > -1);
+			});
+		
 		//ctrl.tags.filter(function(tag) {return (tag && tag.text.indexOf(query) > -1);});
-		deferred.resolve(ctrl.tags);
+		deferred.resolve(availTags);
 		return deferred.promise;
 	};
 	
 	ctrl.filterProjects = function($tag) {
+		
+		ctrl.resultCount = 0;
+		
 		for (var i = 0, len = ctrl.projects.length; i < len; ++i) {
-			ctrl.projects[i].visible = (ctrl.projects[i].tags.indexOf($tag.text) > -1);
+			
+			var visible = true;
+			
+			for (var j = 0, jLen = ctrl.selectedTags.length; j < jLen; ++j) {
+				if (ctrl.projects[i].tags.indexOf(ctrl.selectedTags[j].text) === -1) {
+					visible = false;
+					break;
+				}
+			}
+			
+			if (visible === true) {
+				ctrl.resultCount++;
+			}
+			
+			ctrl.projects[i].visible = visible;
 		}
 	};
 	
@@ -105,13 +126,21 @@ angular.module('cjh')
 	for (var i = 0, len = ctrl.projects.length; i < len; ++i) {
 		var proj = ctrl.projects[i];
 		
-		for (var j = 0, len = proj.tags.length; j < len; ++j) {
+		for (var j = 0, jLen = proj.tags.length; j < jLen; ++j) {
 			if (uniqueTags.indexOf(proj.tags[j]) === -1) {
 				ctrl.tags.push({text: proj.tags[j]});
 				uniqueTags.push(proj.tags[j]);
 			}
 		}
 	}
+	
+	//sort projects by coolPoints
+	ctrl.projects.sort(function(a, b) {
+		return a.coolPoints > b.coolPoints ? -1 : 1;
+	});
+	
+	ctrl.resultCount = ctrl.projects.length;
+	console.log('tags', ctrl.tags, 'uniqueTags', uniqueTags);
 	
 	$scope.$watch('ctrl.search', function(newVal, oldVal) {
 		if (!newVal || newVal.length <= 1) {

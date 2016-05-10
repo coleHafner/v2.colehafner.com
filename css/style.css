@@ -1,20 +1,22 @@
 body {
-	margin-top: 100px;
-	padding: 10px;
+	margin-top: 0;
+	margin-left: 200px;
+	padding: 0;
+	padding-left: 10px;
 	font-family: arial;
 }
 
 .app-nav {
 	position: fixed;
-	height: 100px;
-	left: 0;
-	right: 0;
 	top: 0;
+	bottom: 0;
+	left: 0;
 	background-color: #fff;
 	box-shadow: 0 1px 15px rgba(0,0,0, .22);
 	font-family: 'Oswald', sans-serif;
 	font-weight: 400;
 	z-index: 1000;
+	width: 195px;
 }
 
 h4 {
@@ -29,16 +31,16 @@ h4 {
 	height: 90px;
 	margin-top: 5px;
 	margin-left: 5px;
-
-	float: left;
 }
 
 .app-nav ul {
-	float: right;
+	list-style: none;
+    margin-left: 0;
+    padding: 0;
 }
 
 .app-nav ul li {
-	display: inline-block;
+	display: block;
 }
 
 .app-nav ul li a {
@@ -49,7 +51,8 @@ h4 {
 	padding-right: 25px;
 	min-width: 80px;
 	text-align: center;
-	margin-right: 10px;
+	margin-bottom: 10px;
+	text-transform: uppercase;
 }
 
 .app-nav ul li a:hover, .app-nav ul li a.active {
@@ -92,6 +95,14 @@ h4 {
 .projects .filters .inner {
 	padding: 20px;
 	position: relative;
+}
+
+.projects .filters .inner .result-count {
+	position: absolute;
+    bottom: 5px;
+    left: 50%;
+    margin-left: -25px;
+    color: #999;
 }
 
 .projects .filters .inner .tags {
