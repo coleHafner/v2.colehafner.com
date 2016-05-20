@@ -140,7 +140,6 @@ angular.module('cjh')
 	});
 	
 	ctrl.resultCount = ctrl.projects.length;
-	console.log('tags', ctrl.tags, 'uniqueTags', uniqueTags);
 	
 	$scope.$watch('ctrl.search', function(newVal, oldVal) {
 		if (!newVal || newVal.length <= 1) {

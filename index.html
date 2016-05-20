@@ -78,44 +78,48 @@
 		</script>
 		
 		<script type="text/ng-template" id="nav.html">
-			<div class="app-nav clearfix">
-				<div class="logo"></div>
-				<ul>
-					<li>
-						<a ng-class="{active: selected === 'home'}" 
-							ng-click="activate($event, 'home')">
-							Contact
+			<div class="app-nav clearfix visible">
+				<div class="inner">
+					<div class="logo"></div>
+					<ul>
+						<li>
+							<a ng-class="{active: selected === 'home'}" 
+								ng-click="activate($event, 'home')">
+								Contact
+							</a>
+						</li>
+						<li>
+							<a ng-class="{active: selected === 'projects'}"
+								ng-click="activate($event, 'projects')">
+								Portfolio
+							</a>
+						</li>
+						<li>
+							<a ng-class="{active: selected === 'blog'}"
+								ng-click="openBlog()">
+								Blog
+							</a>
+						</li>
+					</ul>
+
+					<div class="social">
+						<a href="https://github.com/colehafner" target="_blank">
+							<i class="fi-social-github"></i>
 						</a>
-					</li>
-					<li>
-						<a ng-class="{active: selected === 'projects'}"
-							ng-click="activate($event, 'projects')">
-							Portfolio
+
+						<a href="https://www.linkedin.com/in/colehafner" target="_blank">
+							<i class="fi-social-linkedin"></i>
 						</a>
-					</li>
-					<li>
-						<a ng-class="{active: selected === 'blog'}"
-							ng-click="activate($event, 'blog')"
-							href="http://colescodeco.tumblr.com"
-							target="_blank">
-							Blog
+
+						<a href="http://colescodeco.tumblr.com" target="_blank">
+							<i class="fi-social-tumblr"></i>
 						</a>
-					</li>
-				</ul>
-		
-				<div class="social">
-					<a href="https://github.com/colehafner" target="_blank">
-						<i class="fi-social-github"></i>
-					</a>
-			
-					<a href="https://www.linkedin.com/in/colehafner" target="_blank">
-						<i class="fi-social-linkedin"></i>
-					</a>
-			
-					<a href="http://colescodeco.tumblr.com" target="_blank">
-						<i class="fi-social-tumblr"></i>
-					</a>
+					</div>
 				</div>
+		
+				<a href="#" ng-click="toggle()" class="toggle">
+					<i class="fi-list"></i>
+				</a>
 			</div>
 		</script>
 		
