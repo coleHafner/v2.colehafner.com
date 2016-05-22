@@ -8,9 +8,19 @@ angular.module('cjh')
 		link: function(scope, el, attrs, ctrl) {
 			scope.el = el;
 		},
-		controller: ['$scope', '$window', '$state', function ($scope, $window, $state) {
-
+		controller: [
+			'$scope', 
+			'$window', 
+			'$state', 
+			'$interval',
+		function (
+			$scope, 
+			$window, 
+			$state,
+			$interval
+		) {
 			$scope.selected = 'home';
+			$scope.state = null;
 
 			$scope.activate = function($event, item) {
 				$scope.selected = item;
@@ -20,14 +30,13 @@ angular.module('cjh')
 				});
 			};
 			
-			$scope.toggle = function() {
-				var classToAdd = $scope.el.hasClass('visible') ? 'hidden' : 'visible';
-				$scope.el.removeClass('visible hidden').addClass(classToAdd);
-			};
-			
 			$scope.openBlog = function() {
 				$window.open('http://colescodeco.tumblr.com', '_blank');
 				onItemClick();
+			};
+			
+			$scope.toggle = function() {
+				$scope.state = doToggle();
 			};
 			
 			$scope.$root.$on('$stateChangeSuccess', function ($event, toState, toParams, fromState, fromParams) {
@@ -36,13 +45,17 @@ angular.module('cjh')
 				$scope.selected = toState.name;
 			});
 			
-			angular.element($window).bind('resize', function () {
-				console.log('maybe resizing...');
-				if($window.innerWidth <= 800 && $scope.el.hasClass('visible')) {
-					$scope.toggle();
-				}else if ($window.innerWidth > 800 && !$scope.el.hasClass('visible')) {
-					$scope.toggle();
-				}
+			$scope.$on('$destroy', function() {
+				$interval.cancel(checkResize);
+			});
+			
+			
+			
+			angular.element($window).bind('resize', function() {
+				var navItems = angular.element($scope.el.children('.inner')).children('ul'),
+					newDisplay = ($window.innerWidth > 800) ? 'block' : 'none';
+					
+				navItems.css('display', newDisplay);
 			});
 			
 			function onItemClick() {
@@ -52,7 +65,15 @@ angular.module('cjh')
 					return;
 				}
 
-				$scope.toggle();
+				doToggle();
+			}
+			
+			function doToggle() {
+				var navItems = angular.element($scope.el.children('.inner')).children('ul'),
+					currentDisplay = navItems.css('display'),
+					newDisplay = currentDisplay === 'block' ? 'none' : 'block';
+			
+				navItems.css('display', newDisplay);
 			}
 		}]
 	};

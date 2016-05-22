@@ -29,8 +29,14 @@
 		<app-nav></app-nav>
 		<div ui-view></div>
 		
-		<script type="text/ng-template" id="home.html">
-			home...
+		<script type="text/ng-template" id="about.html">
+			<div class="about">
+				<h1>Howdy, I'm Cole</h1>
+				<h3>
+					I'm an expert full stack developer, father, husband,
+					scuba diver, and beer drinker.
+				</h3>
+			</div>
 		</script>
 		
 		<script type="text/ng-template" id="projects.html">
@@ -73,19 +79,90 @@
 			</div>
 		</script>
 		
-		<script type="text/ng-template" id="blog.html">
-			blog...
+		<script type="text/ng-template" id="resume.html">
+			<div class="resume">
+				<h1>Cole Hafner </h1>
+				<div class="sub-header">colehafner@gmail.com - colehafner.com</div>
+
+				<p>
+					I am an expert full stack developer with a strong passion for clean, maintainable 
+					web applications. I have bachelor’s degree in computer science and more than 7 years 
+					experience in the web software field. Throughout my career, I have specialized in 
+					creating clean and responsive applications for a variety of platforms. I have had
+					many roles including ui/ux engineer, database architect, mentor, consultant, team 
+					leader, and project manager. My goal is to join an organization that fosters 
+					creativity and innovation, has room for growth and values a strong work/life balance. 
+				</p>
+
+				<h3>Qualifications</h3>
+				<ul>
+					<li>Expert in the LAMP stack/PHP, MySQL, CSS3, JavaScript, HTML5, and Git.</li>
+					<li>Proven proficiency in AngularJS and client/server model project architecture.</li>
+					<li>Strong track record of creating and maintaining large, well normalized, scalable databases.</li>
+					<li>Skilled in creating cross platform responsive web apps using Ionic framework.</li>
+					<li>Excellent communication skills. I love learning new things and working with people.</li>
+				</ul>
+
+				<h3>Skills</h3>
+				<ul>
+					<li><b>Client</b>: HTML, CSS, AngularJS, Foundation, Bootstrap, jQuery, jQueryUI, Highcharts, SASS, SCSS</li>
+					<li><b>Server</b>: MVC, PHP, CakePHP, CodeIgniter, WordPress, Smarty Templates, MySQL, Node.js</li>
+					<li><b>Software Tools</b>: Grunt, Bower, NPM, Composer, Vagrant, Git, HomeBrew, Apache</li>
+					<li><b>Workflow Tools</b>: Pivotal Tracker, Bitbucket, Balsamiq, Slack, NetBeans, SourceTree, NaviCat</li>
+					<li><b>Operating Systems/Other</b>: Mac OS, Linux, Windows, AWS EC2, AWS RDS, Terminal, SSH</li>
+					<li><b>Services/APIs</b>: Facebook/Twitter Integrations, Google Maps/Analytics, custom integrations via SOAP/Curl. </li>
+				</ul>
+
+				<h3>Professional Experience</h3>
+
+				<div class="exp">
+					<div class="title"><span>Manifest Web Design - Senior Developer</span> | Beaverton, OR | Sep 2011 - Present</div>
+					<ul>
+						<li>Moved company away from local hosting solution to AWS (Amazon Web Services) EC2 instances/RDS DB. Added ease of management while increasing uptime and cutting company expenses.</li>
+						<li>Optimized the code review/release workflow and cut release cycle time in half while reducing production bugs.</li>
+						<li>Created company standard for  user permission/access control (now used on all projects).</li>
+						<li>Headed up intern program and helped onboard and train new team members. </li>
+					</ul>
+				</div>
+
+				<div class="exp">
+					<div class="title"><span>Steelhead Advertising - Developer</span> | Ashland, OR | Aug 2008 - Sep 2011</div>
+					<ul>
+						<li>Created new wireframing process that improved client communication and decreased time to completion. </li>
+						<li>Trained new developers on company coding standards.</li>
+					</ul>
+				</div>
+
+				<div class="exp">
+					<div class="title"><span>Blackstone Audiobooks - Intern</span> | Ashland, OR | April 2008 - June 2008</div>
+					<ul>
+						<li>Created inventory tracking database for company hardware.</li>
+						<li>Assisted IT lead in rebuilding/expanding company servers.</li>
+					</ul>
+				</div>
+
+				<h3>Education</h3> 
+				<div class="exp">
+					<div class="title"><span>B.S. Computer Science/BA Minor</span> | Southern Oregon University | Ashland, OR | May 2008</div>
+				</div>
+
+				<h3>References</h3>
+				<div class="p">Available upon request.</div>
+
+				<h3>Activities/Interests </h3>
+				<div class="p">Spending time with my family, home remodeling, scuba, hiking, landscaping/yard work, basketball, and running.</div>
+			</div>
 		</script>
 		
 		<script type="text/ng-template" id="nav.html">
 			<div class="app-nav clearfix visible">
 				<div class="inner">
-					<div class="logo"></div>
+					<div class="logo"><span>CH</span></div>
 					<ul>
 						<li>
-							<a ng-class="{active: selected === 'home'}" 
-								ng-click="activate($event, 'home')">
-								Contact
+							<a ng-class="{active: selected === 'about'}" 
+								ng-click="activate($event, 'about')">
+								About
 							</a>
 						</li>
 						<li>
@@ -94,6 +171,16 @@
 								Portfolio
 							</a>
 						</li>
+				
+						<!-- 
+						<li>
+							<a ng-class="{active: selected === 'resume'}"
+								ng-click="activate($event, 'resume')">
+								Resume
+							</a>
+						</li>
+						-->
+				
 						<li>
 							<a ng-class="{active: selected === 'blog'}"
 								ng-click="openBlog()">
@@ -103,6 +190,10 @@
 					</ul>
 
 					<div class="social">
+						<a href="mailto:colehafner@gmail.com">
+							<i class="fi-mail"></i>
+						</a>
+				
 						<a href="https://github.com/colehafner" target="_blank">
 							<i class="fi-social-github"></i>
 						</a>

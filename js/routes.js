@@ -8,10 +8,10 @@ function (
 	$urlRouterProvider
 ) {
 	$stateProvider
-		.state('home', {
+		.state('about', {
 			url: '/',
-			controller: 'HomeCtrl as ctrl',
-			templateUrl: 'home.html'
+			controller: 'AboutCtrl as ctrl',
+			templateUrl: 'about.html'
 		})
 
 		.state('projects', {
@@ -19,11 +19,11 @@ function (
 			controller: 'ProjectsCtrl as ctrl',
 			templateUrl: 'projects.html'
 		})
-
-		.state('blog', {
-			url: '/blog',
-			controller: 'BlogCtrl as ctrl',
-			templateUrl: 'blog.html'
+		
+		.state('resume', {
+			url: '/resume',
+			controller: 'ResumeCtrl as ctrl',
+			templateUrl: 'resume.html'
 		});
 
 	$urlRouterProvider.otherwise('/');

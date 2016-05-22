@@ -41,26 +41,18 @@ body {
 
 .app-nav .toggle {
 	display: none;
-	position: absolute;
-    top: 15px;
-    right: -41px;
-    width: 40px;
+    position: absolute;
+    top: 24px;
+    right: 15px;
+    width: 50px;
     height: 50px;
-    border-radius: 0 5px 5px 0;
     border: 1px solid rgba(0,0,0, .22);
-	border-left-style: hidden;
     z-index: 1001;
-	text-align: center;
-	font-size: 32px;
+    text-align: center;
+    font-size: 32px;
     line-height: 50px;
-/*	background: linear-gradient(to left, dodgerblue, white 79%);*/
-}
-
-.app-nav.visible .toggle {
-	background-color: #fff;
-	transition-property: 'background-color';
-	transition-duration: .75s;
-	color: #999;
+    background-color: dodgerblue;
+    color: #fff;
 }
 
 .app-nav.hidden .toggle {
@@ -76,7 +68,6 @@ h4 {
 }
 
 .app-nav .logo {
-	/*background: url(http://v1.colehafner.com/images/logo.png) center center no-repeat; */
 	background: url(https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/2/005/025/154/2246aaf.jpg) center center no-repeat;
 	background-size: 150px;
 	margin-top: 5px;
@@ -88,6 +79,15 @@ h4 {
     margin-top: 15px;
 	margin-bottom: 15px;
     border-radius: 50%;
+	
+	line-height: 80px;
+    text-align: center;
+    font-size: 45px;
+    font-family: 'Oswald', sans-serif;
+}
+
+.app-nav .logo span {
+	display: none;
 }
 
 .app-nav .social {
@@ -266,6 +266,72 @@ h4 {
     left: 24px;
 }
 
+.resume h1, .resume h3 {
+	margin-bottom: 0;
+	padding-bottom: 7px;
+	font-family: 'Oswald', sans-serif;
+}
+
+.about {
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    width: 400px;
+    margin-left: -200px;
+    padding-left: 98px;
+    font-family: 'Oswald', sans-serif;
+    height: 175px;
+    margin-top: -125px;
+}
+
+.about h1 {
+	padding: 0;
+	margin-bottom: 5px;
+	font-weight: 400;
+}
+
+.about h3 {
+	font-weight: 100;
+	padding: 0;
+	margin-top: 0;
+}
+
+.resume p, .resume .sub-header, .resume div.p {
+	padding-left: 7px;
+}
+
+.resume .exp {
+	padding-top: 10px;
+	padding-bottom: 15px;
+	padding-left: 7px;
+}
+
+.resume:first-child .exp {
+	padding-top: 0;
+}
+
+.resume:last-child .exp {
+	padding-bottom: 0;
+}
+
+.resume .exp .title {
+	margin-bottom: 5px;
+}
+
+.resume .exp .title span {
+	font-weight: bold;
+}
+
+.resume ul {
+	margin: 0;
+	padding-left: 25px;
+}
+
+.resume ul li {
+	padding-left: 0;
+}
+
 @media (max-width: 1100px) {
 	.projects ul.plist li {
 		display: block;
@@ -278,9 +344,63 @@ h4 {
 		display: block;
 	}
 	
+	
+	.about {
+		padding-left: 0;
+	}
+	
 	body {
-		margin-left: 5px;
-		transition-property: 'margin-left';
-		transition-delay: '1s';
+		margin-left: 0;
+		margin-top: 110px;
+		padding-bottom: 50px;
+	}
+	
+	.projects ul:last-child li {
+		margin-bottom: 50px;
+	}
+	
+	.app-nav {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 100px;
+		width: 100%;
+	}
+	
+	.app-nav .logo {
+		background-image: none;
+		background-color: #fff;
+		border: 3px solid #000;
+		width: 80px;
+		height: 80px;
+		margin-top: 8px;
+		margin-left: 8px;
+	}
+	
+	.app-nav .logo span {
+		display: block;;
+	}
+	
+	.app-nav .social {
+		position: fixed;
+		background-color: #fff;
+	}
+	
+	.app-nav ul {
+		display: none;
+		background-color: #fff;
+		margin-top: 30px;
+	}
+}
+
+@media (max-width: 640px) {
+	.projects ul li .panel a.inner {
+		background-position: center top !important;
+	}
+	
+	.about {
+		width: 300px;
+		margin-left: -150px;
 	}
 }

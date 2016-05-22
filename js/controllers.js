@@ -1,7 +1,11 @@
 angular.module('cjh')
 
-.controller('HomeCtrl', ['$scope', function($scope) {
+.controller('AboutCtrl', ['$scope', function($scope) {
+	//nothing to see here
+}])
 
+.controller('ResumeCtrl', ['$scope', function($scope) {
+	//nothing to see here
 }])
 
 .controller('ProjectsCtrl', ['$scope', '$q', function($scope, $q) {
@@ -146,8 +150,4 @@ angular.module('cjh')
 			return;
 		}
 	});
-}])
-
-.controller('BlogCtrl', ['$scope',  function($scope) {
-
 }]);
