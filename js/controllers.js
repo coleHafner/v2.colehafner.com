@@ -92,8 +92,9 @@ angular.module('cjh')
    
 	ctrl.loadTags = function(query) {
 		var deferred = $q.defer(),
+			cleanQuery = typeof query !== 'undefined' ? query.toLowerCase() : '',
 			availTags = ctrl.tags.filter(function(tag) {
-				return (tag.text.indexOf(query) > -1);
+				return (tag.text.indexOf(cleanQuery) > -1);
 			});
 		
 		//ctrl.tags.filter(function(tag) {return (tag && tag.text.indexOf(query) > -1);});

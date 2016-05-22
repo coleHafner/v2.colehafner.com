@@ -40,7 +40,7 @@ angular.module('cjh')
 			};
 			
 			$scope.$root.$on('$stateChangeSuccess', function ($event, toState, toParams, fromState, fromParams) {
-				var newTitle = 'colehafner.com - ' + toState.name;
+				var newTitle = toState.name.charAt(0).toUpperCase() + toState.name.substr(1) + ' - colehafner.com';
 				$window.document.title = newTitle;
 				$scope.selected = toState.name;
 			});
